@@ -1,0 +1,10 @@
+:host {
+    padding: 20px;
+    grid-area: footer;
+    background-color: var(--footer-color);
+    color: white;
+    a {
+        text-decoration: none;
+        cursor: text;
+    }
+}

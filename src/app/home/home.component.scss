@@ -1,0 +1,19 @@
+:host {
+    .banner {
+        width:95%;
+        height:50%;
+        margin: 0 auto;
+
+        @media screen and (max-width:102em){
+            height:400px;
+        }
+
+    }
+    .top-sale{
+       width:100%;
+       margin-top: 50px;
+       @media screen and (max-width:102em){
+            margin-top:50px;
+        }
+    }
+}

@@ -1,0 +1,19 @@
+:host{
+    .banner-place{
+        width:100%;
+
+        .img-place {
+            display: flex;
+            flex-direction: row;
+        }
+        .carousel-caption{
+            background-color: #fff;
+            opacity: 80%;
+
+            h3, p{
+                color:#000;
+            }
+        }
+
+    }
+}
