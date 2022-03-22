@@ -25,22 +25,16 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
     
   }
+  
   async onSubmit(): Promise<any> {
     console.log("-----login-----");
     const { username, password } = this.form;
     this.isLoginFailed = false;
     if (await this.authenticationService.authenticate(username, password)) {
-      // this.router.navigate(['list']);
-      console.log("login ok");
+      this.router.navigate(['home']);
     } else {
       this.isLoginFailed = true;
       this.errorMessage = "Identifiants incorrects !";
-      console.log("login ko")
     }
   }
-
-  async handleLogin() {
-    
-  }
-
 }
