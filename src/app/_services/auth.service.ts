@@ -23,15 +23,11 @@ export class AuthService {
 
   async getTop5(){
     let token = sessionStorage.getItem("access_token");
-    //console.log("token: "+ token);
+    console.log("token: "+ token);
     if(await this.apiService.getTop5() != null){
       console.log("products");
-      console.log(await this.apiService.getTop5());
-      // return true;
+      return await this.apiService.getTop5();
     }
-    else{
-      console.log("Tsy mety");
-    }
-    return false;
+    return null;
   }
 }

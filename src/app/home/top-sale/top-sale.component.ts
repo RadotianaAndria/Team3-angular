@@ -11,11 +11,14 @@ export class TopSaleComponent implements OnInit {
   constructor(
     private authenticationService: AuthService
   ) { }
-
+  
   async ngOnInit(): Promise<void> {
     console.log("Bienvenue");
-    if(await this.authenticationService.getTop5()){
-      console.log("OK"); 
+    if(await this.authenticationService.getTop5() != null){
+      let top5 = this.authenticationService.getTop5();
+      top5.then(function(data){
+        console.log(data[0]);
+      }) 
     }
   }
 
