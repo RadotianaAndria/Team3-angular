@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/_services/auth.service';
 
 @Component({
   selector: 'app-top-sale',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TopSaleComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private authenticationService: AuthService
+  ) { }
 
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
+    console.log("Bienvenue");
+    if(await this.authenticationService.getTop5()){
+      console.log("OK"); 
+    }
   }
 
 }

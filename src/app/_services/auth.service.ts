@@ -20,4 +20,18 @@ export class AuthService {
     }
     return false;
   }
+
+  async getTop5(){
+    let token = sessionStorage.getItem("access_token");
+    //console.log("token: "+ token);
+    if(await this.apiService.getTop5() != null){
+      console.log("products");
+      console.log(await this.apiService.getTop5());
+      // return true;
+    }
+    else{
+      console.log("Tsy mety");
+    }
+    return false;
+  }
 }
