@@ -8,15 +8,18 @@ import { AuthService } from 'src/app/_services/auth.service';
 })
 export class TopSaleComponent implements OnInit {
 
+  products = [];
   constructor(
     private authenticationService: AuthService
   ) { }
   
   async ngOnInit(): Promise<void> {
-    console.log("Bienvenue");
-    if(await this.authenticationService.getTop5() != null){
-      let top5 = this.authenticationService.getTop5();
+    const a = this;
+    let token:string = sessionStorage.getItem("access_token") ?? "";
+    if(await this.authenticationService.getTop5(token) != null){
+      let top5 = this.authenticationService.getTop5(token);
       top5.then(function(data){
+        a.products = data;
         console.log(data[0]);
       }) 
     }

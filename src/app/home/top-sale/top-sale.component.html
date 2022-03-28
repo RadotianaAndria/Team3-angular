@@ -1,88 +1,22 @@
 <h3 class="top-5-sale-title">TOP 5 SALE</h3>
 <div class="top-5-sale">
-    <div id="top-1">
+    
+    <div *ngFor="let product of products" id="top-1">
         <div class="card">
             <div class="card-image"><img src="https://i.picsum.photos/id/334/2304/1536.jpg?hmac=ihrh84KbSSW-zvp-oRz8FGCVOWvPAD3SZvYPS0v3mv8" alt="Lorem Picture" /></div>
             <div class="card-body">
                 <div class="card-date">
-                    <time>12 mars 2022</time>
+                    <time>{{product['price'] | number:'1.0-0'}} Ariary</time>
                 </div>
                 <div class="card-title">
-                    <h3>Lorem Ipsum</h3>
+                    <h3>{{product['name']}}</h3>
                 </div>
                 <div class="card-description">
-                    <p class="texte"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam voluptatibus autem consectetur voluptate facere at, omnis ab optio placeat officiis! Animi modi harum enim quia veniam consectetur unde autem inventore.</p>
+                    <p class="texte"> {{product['description']}}</p>
                 </div>
     
             </div>
         </div>
     </div>
-    <div id="top-2">
-        <div class="card">
-            <div class="card-image"><img src="https://i.picsum.photos/id/335/2249/1499.jpg?hmac=xG8BW9aK7BUKWCQGX_Nvo_TP47ac68vNq2Sst5ihWLw" alt="Lorem Picture" /></div>
-            <div class="card-body">
-                <div class="card-date">
-                    <time>12 mars 2022</time>
-                </div>
-                <div class="card-title">
-                    <h3>data.name</h3>
-                </div>
-                <div class="card-description">
-                    <p class="texte"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam voluptatibus autem consectetur voluptate facere at, omnis ab optio placeat officiis! Animi modi harum enim quia veniam consectetur unde autem inventore.</p>
-                </div>
     
-            </div>
-        </div>
-    </div>
-    <div id="top-3">
-        <div class="card">
-            <div class="card-image"><img src="https://i.picsum.photos/id/336/1600/1060.jpg?hmac=V0ApxMul9odmMOXCPn6z_NHFnFT_-SmbQfpzughJahU" alt="Lorem Picture" /></div>
-            <div class="card-body">
-                <div class="card-date">
-                    <time>12 mars 2022</time>
-                </div>
-                <div class="card-title">
-                    <h3>Lorem Ipsum</h3>
-                </div>
-                <div class="card-description">
-                    <p class="texte"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam voluptatibus autem consectetur voluptate facere at, omnis ab optio placeat officiis! Animi modi harum enim quia veniam consectetur unde autem inventore.</p>
-                </div>
-    
-            </div>
-        </div>
-    </div>
-    <div id="top-4">
-        <div class="card">
-            <div class="card-image"><img src="https://i.picsum.photos/id/337/1572/1179.jpg?hmac=mqUkDUaJnZFhlgZeFN3rzoCJ8Mi5v8nPDkb5naIjsBE" alt="Lorem Picture" /></div>
-            <div class="card-body">
-                <div class="card-date">
-                    <time>12 mars 2022</time>
-                </div>
-                <div class="card-title">
-                    <h3>Lorem Ipsum</h3>
-                </div>
-                <div class="card-description">
-                    <p class="texte"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam voluptatibus autem consectetur voluptate facere at, omnis ab optio placeat officiis! Animi modi harum enim quia veniam consectetur unde autem inventore.</p>
-                </div>
-    
-            </div>
-        </div>
-    </div>
-    <div id="top-5">
-        <div class="card">
-            <div class="card-image"><img src="https://i.picsum.photos/id/338/2000/1333.jpg?hmac=-sTSfHkgHcFg1Jdut1v8HTVl9S1cyeMQ0OY_8dj30fY" alt="Lorem Picture" /></div>
-            <div class="card-body">
-                <div class="card-date">
-                    <time>12 mars 2022</time>
-                </div>
-                <div class="card-title">
-                    <h3>Lorem Ipsum</h3>
-                </div>
-                <div class="card-description">
-                    <p class="texte"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam voluptatibus autem consectetur voluptate facere at, omnis ab optio placeat officiis! Animi modi harum enim quia veniam consectetur unde autem inventore.</p>
-                </div>
-    
-            </div>
-        </div>
-    </div>
 </div>

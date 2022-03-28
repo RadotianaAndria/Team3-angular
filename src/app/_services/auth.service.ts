@@ -21,12 +21,10 @@ export class AuthService {
     return false;
   }
 
-  async getTop5(){
-    let token = sessionStorage.getItem("access_token");
-    console.log("token: "+ token);
-    if(await this.apiService.getTop5() != null){
+  async getTop5(token:string){
+    if(await this.apiService.getTop5(token) != null){
       console.log("products");
-      return await this.apiService.getTop5();
+      return await this.apiService.getTop5(token);
     }
     return null;
   }
