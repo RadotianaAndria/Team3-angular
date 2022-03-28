@@ -20,7 +20,6 @@ export class TopSaleComponent implements OnInit {
       let top5 = this.authenticationService.getTop5(token);
       top5.then(function(data){
         a.products = data;
-        console.log(data[0]);
       }) 
     }
   }

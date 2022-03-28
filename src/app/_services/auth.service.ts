@@ -28,4 +28,12 @@ export class AuthService {
     }
     return null;
   }
+
+  async getCategories(token:string){
+    if(await this.apiService.getCategories(token) != null){
+      console.log("products");
+      return await this.apiService.getCategories(token);
+    }
+    return null;
+  }
 }
