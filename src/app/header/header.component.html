@@ -11,18 +11,26 @@
             <label for="menu-checkbox" class="menu-toggle"><i class="bi bi-list"></i></label>
             <ul class="menu">
                 <li class="has-children">
-                    <a href="">ACCUEIL</a>
+                    <a href="/home">ACCUEIL</a>
                     <ul class="dropdown">
                         <li><a href="">SUBMENU 1</a></li>
                         <li><a href="">SUBMENU 2</a></li>
                         <li><a href="">SUBMENU 3</a></li>
                     </ul>
                 </li>
+                <li class="has-children">
+                    <a href="/products">PRODUITS</a>
+                </li>
                 <li *ngFor="let category of categories">
                     <a href="">{{category['name'] | uppercase}}</a>
                 </li>
                 
             </ul>
+            
+            <form class="form-inline mr-auto">
+                <input name="keyword" class="form-control mr-sm-2" type="text" aria-label="Search" [(ngModel)]="keyword">
+                <button class="btn btn-unique btn-rounded btn-sm my-0" (click)="search()" type="submit">Rechercher</button>
+            </form>
 
             <div class="menu-icons">
                 <a id="btn-search" class="btn-search" href="#" >

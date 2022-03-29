@@ -22,4 +22,12 @@ export class ProductService {
         return null as any 
       });
   }
+
+  async searchProduct(keyword: string): Promise<Product[]> {
+    const url = environment.apiUrl + "products/search";
+    const body = {
+      "keyword": keyword
+    };
+    return await this.http.post<Product[]>(url, body).toPromise().catch(() => { return null as any });
+  }
 }
