@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -15,6 +15,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { BoardAdminComponent } from './board-admin/board-admin.component';
+import { ListProductComponent } from './list-product/list-product.component';
+import { TokenInterceptorService } from './interceptors/token-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,8 @@ import { BoardAdminComponent } from './board-admin/board-admin.component';
     TopSaleComponent,
     LoginComponent,
     RegisterComponent,
-    BoardAdminComponent
+    BoardAdminComponent,
+    ListProductComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +39,13 @@ import { BoardAdminComponent } from './board-admin/board-admin.component';
     FormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptorService,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
