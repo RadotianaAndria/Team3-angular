@@ -1,0 +1,105 @@
+:host {
+   
+    .list-product-title{
+        text-transform: uppercase;
+        text-align: center;
+    }
+
+    .product-main-div{
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-gap: 10px;
+        grid-auto-rows: minmax(100px, auto);
+        margin-top: 30px;
+        margin-bottom: 20px;
+        @media screen and (max-width:600px) {
+            grid-template-columns: repeat(1, 1fr);
+            margin-top: 60px;
+        }
+
+        @media screen and (min-width:1700px) {
+            grid-template-columns: repeat(5, 1fr);
+            margin-top: 60px;
+        }
+    }
+    
+    
+    #main-card{
+        margin-top: 20px;
+        .card:hover .card-image img { 
+            width: 160%;
+            filter: grayscale(0);
+        }
+    
+        .card {
+            
+            width: 300px;
+            height: 400px;
+            margin: 0px auto;
+            background-color: white;
+            box-shadow: 0px 5px 20px #999;
+            
+            @media screen and (max-width:102em){
+                margin-bottom: 60px;
+            }
+
+            .card-image {
+                height: 60%;/*1*/
+                position: relative;/*2*/
+                overflow: hidden;/*3*/
+        
+                img {
+                    width: 150%;/*4*/
+                        /*5 - Méthode de centrage en fonction de la taille de l'image */
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    filter: grayscale(1);/*6*/
+                        /*7 - Transition */
+                    transition-property: filter width; 
+                    transition-duration: .3s;
+                    transition-timing-function: ease;
+                    }
+        
+            }
+        
+            .card-body {
+                height: 40%;
+                width: 100%;
+                text-align:center;  /*1*/
+                padding: 15px 20px; /*2*/
+                box-sizing: border-box; /*3*/
+
+                .card-name {
+                    font-family: 'Source Sans Pro', sans-serif;
+                }
+                
+                .card-price, .card-description {
+                    font-family: 'Playfair Display', serif;
+                    .texte {
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        white-space: nowrap;
+                        width: 100%;
+                        height: 50px;
+                    }
+                }
+                
+                .card-name, .card-price {
+                    text-align:center;
+                    text-transform:uppercase;
+                    font-weight: bold;
+                }
+                
+                .card-name, .card-description {
+                    color: #777;
+                }
+
+            }
+    
+        }
+        
+    }
+
+}
