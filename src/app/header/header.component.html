@@ -11,7 +11,7 @@
             <label for="menu-checkbox" class="menu-toggle"><i class="bi bi-list"></i></label>
             <ul class="menu">
                 <li class="has-children">
-                    <a href="/home">ACCUEIL</a>
+                    <a [routerLink]="['/home']">ACCUEIL</a>
                     <ul class="dropdown">
                         <li><a href="">SUBMENU 1</a></li>
                         <li><a href="">SUBMENU 2</a></li>
@@ -19,7 +19,7 @@
                     </ul>
                 </li>
                 <li class="has-children">
-                    <a href="/products">PRODUITS</a>
+                    <a [routerLink]="['/products']">PRODUITS</a>
                 </li>
                 <li *ngFor="let category of categories">
                     <a href="">{{category['name'] | uppercase}}</a>
