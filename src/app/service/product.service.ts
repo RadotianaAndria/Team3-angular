@@ -17,7 +17,6 @@ export class ProductService {
 
   async getAllProduct(): Promise<Product[]> {
     const url = environment.apiUrl + "products.json";
-    console.log(this.authService.getToken());
     return this.http.get<Product[]>(url).toPromise()
       .catch((err) => { 
         return null as any 

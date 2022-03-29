@@ -20,6 +20,11 @@ export class AuthService {
     return false;
   }
 
+  isLoggedIn() {
+    let token = localStorage.getItem("access_token");
+    return token !== null;
+  }
+
   getToken() {
     return localStorage.getItem("access_token");
   }
