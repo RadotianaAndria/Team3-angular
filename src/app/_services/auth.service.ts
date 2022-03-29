@@ -23,7 +23,6 @@ export class AuthService {
 
   async getTop5(token:string){
     if(await this.apiService.getTop5(token) != null){
-      console.log("products");
       return await this.apiService.getTop5(token);
     }
     return null;
@@ -31,8 +30,13 @@ export class AuthService {
 
   async getCategories(token:string){
     if(await this.apiService.getCategories(token) != null){
-      console.log("products");
       return await this.apiService.getCategories(token);
+    }
+    return null;
+  }
+  async getBanners(token:string){
+    if(await this.apiService.getBanners(token) != null){
+      return await this.apiService.getBanners(token);
     }
     return null;
   }

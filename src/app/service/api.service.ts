@@ -17,6 +17,11 @@ export interface Product {
 export interface Category {
   name: string;
 }
+
+export interface Banner {
+  name: string;
+  created: Date;
+}
 @Injectable({
   providedIn: 'root'
 })
@@ -62,4 +67,14 @@ export class ApiService {
     return await this.http.get<Category>(url, httpOptions).toPromise().catch(() => { return null as any});
   }
 
+  async getBanners(access_token:string){
+    const url = environment.apiUrl+"banners.json";
+    console.log("URL de l'API: "+url);
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Authorization': "Bearer "+access_token
+      })
+    };
+    return await this.http.get<Category>(url, httpOptions).toPromise().catch(() => { return null as any});
+  }
 }

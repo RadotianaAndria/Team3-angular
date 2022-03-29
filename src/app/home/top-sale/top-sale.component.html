@@ -12,9 +12,11 @@
                     <h3>{{product['name']}}</h3>
                 </div>
                 <div class="card-description">
-                    <p class="texte"> {{product['description']}}</p>
+                    <!-- <p class="texte"> {{product['description']}}<br> -->
+                        <button class="btn btn-success btn-block" (click) = "ajouter(product['id'])">Ajouter au panier</button>
+                    <!-- </p> -->
                 </div>
-    
+                
             </div>
         </div>
     </div>

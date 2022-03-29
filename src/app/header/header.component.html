@@ -21,6 +21,12 @@
                 <li *ngFor="let category of categories">
                     <a href="">{{category['name'] | uppercase}}</a>
                 </li>
+                <li>
+                    <a [routerLink]="['/panier']">
+                        PANIER
+                      </a>
+                    <!-- <a href="">PANIER</a> -->
+                </li>
                 
             </ul>
 

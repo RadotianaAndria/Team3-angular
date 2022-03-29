@@ -1,14 +1,14 @@
 <div class="banner-place">
-    <ngb-carousel *ngIf="slide_list">
+    <ngb-carousel>
       <ng-template ngbSlide *ngFor="let slide of current_slide">
         <div class="img-place">
-          <img class="left-img" [src]="slide.img" alt="Random slide">
-          <img class="right-img" [src]="slide.img2" alt="Random slide">
+          <img class="left-img" src="https://picsum.photos/900/500?random&t=6" alt="Random slide">
+          <img class="right-img" src="https://picsum.photos/900/500?random&t=8" alt="Random slide">
         </div>
         
         <div class="carousel-caption">
-          <h3>{{ slide.title }}</h3>
-          <p [innerText]="slide.description"></p>
+          <h3>{{ slide['name'] }}</h3>
+          <!-- <p [innerText]="slide.description"></p> -->
         </div>
       </ng-template>
     </ngb-carousel>

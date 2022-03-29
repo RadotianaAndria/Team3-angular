@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/_services/auth.service';
 
 @Component({
   selector: 'app-banner',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BannerComponent implements OnInit {
 
-  slide_list = [
+  /*slide_list = [
     {
       title:'Slide 1',
       description:'This is the first slide.',
@@ -41,9 +42,20 @@ export class BannerComponent implements OnInit {
       endingDate: new Date()
     },
   ]
-  current_slide =  this.slide_list.filter( slide => (slide.startDate >= new Date() && (slide.endingDate <= new Date())))
-  constructor() { }
+  current_slide =  this.slide_list.filter( slide => (slide.startDate >= new Date() && (slide.endingDate <= new Date())))*/
+  constructor(private authenticationService: AuthService) { }
+  current_slide = [];
 
-  ngOnInit() { }
+  async ngOnInit(): Promise<void> {
+    const a = this;
+    let token:string = sessionStorage.getItem("access_token") ?? "";
+    if(await this.authenticationService.getBanners(token) != null){
+      let banners = this.authenticationService.getBanners(token);
+      banners.then(function(data){
+        var slide_list = data;
+        a.current_slide = data;
+      }) 
+    }
+  }
 
 }

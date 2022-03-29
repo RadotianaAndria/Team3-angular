@@ -6,7 +6,10 @@ import { AuthService } from '../_services/auth.service';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
+
+
 export class HeaderComponent implements OnInit {
+
 
   constructor(private authenticationService: AuthService) { }
   categories = [];

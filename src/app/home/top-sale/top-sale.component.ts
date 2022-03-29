@@ -8,6 +8,7 @@ import { AuthService } from 'src/app/_services/auth.service';
 })
 export class TopSaleComponent implements OnInit {
 
+  panier : string[] = [];
   products = [];
   constructor(
     private authenticationService: AuthService
@@ -22,6 +23,14 @@ export class TopSaleComponent implements OnInit {
         a.products = data;
       }) 
     }
+  }
+
+  async ajouter(productId:string){
+    if(productId != null){
+      this.panier.push(productId);
+      alert("Le produit de référence " +productId+" est ajouté au panier");
+    }
+    console.log(productId);
   }
 
 }
