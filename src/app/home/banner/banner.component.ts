@@ -45,7 +45,6 @@ export class BannerComponent implements OnInit {
   current_slide =  this.slide_list.filter( slide => (slide.startDate >= new Date() && (slide.endingDate <= new Date())))
   constructor(private authenticationService: AuthService) { }
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
   }
 
   // current_slide = [];

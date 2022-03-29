@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from '../_services/auth.service';
 
 @Component({
@@ -10,9 +11,14 @@ import { AuthService } from '../_services/auth.service';
 
 export class HeaderComponent implements OnInit {
 
-
-  constructor(private authenticationService: AuthService) { }
   categories = [];
+  keyword: string = '';
+
+  constructor(
+    private authenticationService: AuthService,
+    private route: Router
+  ){ }  
+
   async ngOnInit(): Promise<void> {
     const a = this;
     let token:string = sessionStorage.getItem("access_token") ?? "";
@@ -22,6 +28,16 @@ export class HeaderComponent implements OnInit {
         a.categories = data;
       }) 
     }
+  }
+
+  redirectTo(uri:string): void {
+    this.route.navigateByUrl('/', {skipLocationChange: true}).then(()=>
+    this.route.navigate([uri]));
+ }
+
+  search(): void {
+    this.route.navigateByUrl('/', {skipLocationChange: true}).then(() =>
+      this.route.navigate(['/products'], {queryParams: {keyword: this.keyword} }));  
   }
 
 }
