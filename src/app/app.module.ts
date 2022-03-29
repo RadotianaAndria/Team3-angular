@@ -15,12 +15,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { BoardAdminComponent } from './board-admin/board-admin.component';
-<<<<<<< HEAD
-import { PanierComponent } from './panier/panier.component';
-=======
 import { ListProductComponent } from './list-product/list-product.component';
 import { TokenInterceptorService } from './interceptors/token-interceptor.service';
->>>>>>> 46623bb84b363b7e0f6dee67ccfb0c886ccb48dc
+import { PanierComponent } from './panier/panier.component';
 
 @NgModule({
   declarations: [
@@ -34,11 +31,8 @@ import { TokenInterceptorService } from './interceptors/token-interceptor.servic
     LoginComponent,
     RegisterComponent,
     BoardAdminComponent,
-<<<<<<< HEAD
-    PanierComponent
-=======
+    PanierComponent,
     ListProductComponent
->>>>>>> 46623bb84b363b7e0f6dee67ccfb0c886ccb48dc
   ],
   imports: [
     BrowserModule,

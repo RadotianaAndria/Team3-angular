@@ -8,7 +8,7 @@ import { AuthService } from 'src/app/_services/auth.service';
 })
 export class BannerComponent implements OnInit {
 
-  /*slide_list = [
+  slide_list = [
     {
       title:'Slide 1',
       description:'This is the first slide.',
@@ -42,20 +42,24 @@ export class BannerComponent implements OnInit {
       endingDate: new Date()
     },
   ]
-  current_slide =  this.slide_list.filter( slide => (slide.startDate >= new Date() && (slide.endingDate <= new Date())))*/
+  current_slide =  this.slide_list.filter( slide => (slide.startDate >= new Date() && (slide.endingDate <= new Date())))
   constructor(private authenticationService: AuthService) { }
-  current_slide = [];
-
-  async ngOnInit(): Promise<void> {
-    const a = this;
-    let token:string = sessionStorage.getItem("access_token") ?? "";
-    if(await this.authenticationService.getBanners(token) != null){
-      let banners = this.authenticationService.getBanners(token);
-      banners.then(function(data){
-        var slide_list = data;
-        a.current_slide = data;
-      }) 
-    }
+  ngOnInit(): void {
+    throw new Error('Method not implemented.');
   }
+
+  // current_slide = [];
+
+  // async ngOnInit(): Promise<void> {
+  //   const a = this;
+  //   let token:string = sessionStorage.getItem("access_token") ?? "";
+  //   if(await this.authenticationService.getBanners(token) != null){
+  //     let banners = this.authenticationService.getBanners(token);
+  //     banners.then(function(data){
+  //       var slide_list = data;
+  //       a.current_slide = data;
+  //     }) 
+  //   }
+  // }
 
 }

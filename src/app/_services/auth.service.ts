@@ -33,13 +33,12 @@ export class AuthService {
     }
     return null;
   }
-<<<<<<< HEAD
   async getBanners(token:string){
     if(await this.apiService.getBanners(token) != null){
       return await this.apiService.getBanners(token);
     }
     return null;
-=======
+  }
   
   isLoggedIn() {
     let token = localStorage.getItem("access_token");
@@ -52,6 +51,5 @@ export class AuthService {
 
   logout() {
     localStorage.removeItem("access_token");
->>>>>>> 46623bb84b363b7e0f6dee67ccfb0c886ccb48dc
   }
 }
