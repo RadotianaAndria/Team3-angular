@@ -1,0 +1,20 @@
+<h3 class="list-product-title">Liste des produits</h3>
+<div class="product-main-div">
+    <div id="main-card" *ngFor="let product of listProduct">
+        <div class="card">
+            <div class="card-image"><img src="https://i.picsum.photos/id/334/2304/1536.jpg?hmac=ihrh84KbSSW-zvp-oRz8FGCVOWvPAD3SZvYPS0v3mv8" alt="Lorem Picture" /></div>
+            <div class="card-body">
+                <div class="card-name">
+                    <h3>{{product.name}}</h3>
+                </div>
+                <div class="card-price">
+                    <h4>{{product.price}} Ar</h4>
+                </div>
+                <div class="card-description">
+                    <p class="texte">{{product.description}}</p>
+                </div>
+    
+            </div>
+        </div>
+    </div>
+</div>

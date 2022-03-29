@@ -14,10 +14,17 @@ export class AuthService {
     console.log("Before login api call");
     let loginResponse = await this.apiService.doLogin(username, password);
     if (loginResponse != null && loginResponse.access_token != null) {
-      console.log("Login successfull");
-      sessionStorage.setItem("access_token", loginResponse.access_token);
+      localStorage.setItem("access_token", loginResponse.access_token);
       return true;
     }
     return false;
+  }
+
+  getToken() {
+    return localStorage.getItem("access_token");
+  }
+
+  logout() {
+    localStorage.removeItem("access_token");
   }
 }
