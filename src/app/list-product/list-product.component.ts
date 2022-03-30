@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Product } from '../service/mapping/product';
 import { ProductService } from '../service/product.service';
+import { AuthService } from '../_services/auth.service';
 
 @Component({
   selector: 'app-list-product',
@@ -15,7 +16,8 @@ export class ListProductComponent implements OnInit {
 
   constructor(
     private productService: ProductService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private authenticationService: AuthService
   ) { }
 
   ngOnInit(): void {
@@ -24,10 +26,34 @@ export class ListProductComponent implements OnInit {
       this.productService.searchProduct(this.keyword).then(products => {
         this.listProduct = products;
       });
-    } else {
-      this.productService.getAllProduct().then(products => {
-        this.listProduct = products;
-      });
-    }
+    } else if(this.route.params != undefined){
+      this.route.params.subscribe(async params => {
+        console.log("params:" +params);
+        const id = params['productId'];
+        if(id != undefined){
+          var list : Product[] = [];
+          let token:string = sessionStorage.getItem("access_token") ?? "";
+            if(await this.authenticationService.getCategoriesById(token, id) != null){
+              let categories = this.authenticationService.getCategoriesById(token, id);
+              categories.then((data) =>{
+                var productIds = data.products;
+                this.listProduct = [];
+                for(var i = 0; i<productIds.length; i++){
+                  this.productService.getProductById(productIds[i].id).then(prod => { 
+                    // console.log(prod);
+                    this.listProduct.push(prod);
+                  });
+                }
+              }) 
+            }
+          // this.listProduct = list;
+        } 
+        else {
+          this.productService.getAllProduct().then(products => {
+            this.listProduct = products;
+          });
+        }
+     });
+    } 
   }
 }

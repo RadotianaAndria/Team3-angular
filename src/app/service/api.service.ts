@@ -67,6 +67,17 @@ export class ApiService {
     return await this.http.get<Category>(url, httpOptions).toPromise().catch(() => { return null as any});
   }
 
+  async getCategoriesById(access_token:string, id:string){
+    const url = environment.apiUrl+"categories/"+id+".json";
+    console.log("URL de l'API: "+url);
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Authorization': "Bearer "+access_token
+      })
+    };
+    return await this.http.get<Category>(url, httpOptions).toPromise().catch(() => { return null as any});
+  }
+
   async getBanners(access_token:string){
     const url = environment.apiUrl+"banners.json";
     console.log("URL de l'API: "+url);

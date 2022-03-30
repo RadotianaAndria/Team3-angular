@@ -23,6 +23,14 @@ export class ProductService {
       });
   }
 
+  async getProductById(id:string): Promise<Product> {
+    const url = environment.apiUrl + "products/"+id+".json";
+    return this.http.get<Product>(url).toPromise()
+      .catch((err) => { 
+        return null as any 
+      });
+  }
+
   async searchProduct(keyword: string): Promise<Product[]> {
     const url = environment.apiUrl + "products/search";
     const body = {

@@ -33,6 +33,14 @@ export class AuthService {
     }
     return null;
   }
+
+  async getCategoriesById(token:string, id:string){
+    if(await this.apiService.getCategoriesById(token, id) != null){
+      return await this.apiService.getCategoriesById(token, id);
+    }
+    return null;
+  }
+  
   async getBanners(token:string){
     if(await this.apiService.getBanners(token) != null){
       return await this.apiService.getBanners(token);

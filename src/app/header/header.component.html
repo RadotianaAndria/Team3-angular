@@ -22,7 +22,7 @@
                     <a [routerLink]="['/products']">PRODUITS</a>
                 </li>
                 <li *ngFor="let category of categories">
-                    <a [routerLink]="['/products']">{{category['name'] | uppercase}}</a>
+                    <a [routerLink]="['/products',  {'productId': category['id']}]">{{category['name'] | uppercase}}</a>
                 </li>
                 <li>
                     <a [routerLink]="['/panier']">
