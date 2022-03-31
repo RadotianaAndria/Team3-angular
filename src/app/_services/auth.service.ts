@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ApiService } from '../service/api.service';
+import { Panier } from '../service/mapping/panier';
 
 @Injectable({
   providedIn: 'root'
@@ -15,6 +16,7 @@ export class AuthService {
     let loginResponse = await this.apiService.doLogin(username, password);
     if (loginResponse != null && loginResponse.access_token != null) {
       localStorage.setItem("access_token", loginResponse.access_token);
+      sessionStorage.setItem("panier",JSON.stringify(new Panier(15)));
       return true;
     }
     return false;

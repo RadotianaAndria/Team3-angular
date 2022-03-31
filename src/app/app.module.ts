@@ -31,8 +31,8 @@ import { PanierComponent } from './panier/panier.component';
     LoginComponent,
     RegisterComponent,
     BoardAdminComponent,
-    PanierComponent,
-    ListProductComponent
+    ListProductComponent,
+    PanierComponent
   ],
   imports: [
     BrowserModule,

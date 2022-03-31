@@ -1,1 +1,26 @@
-<p>panier works!</p>
+<br><br><br>
+<h3 class="top-5-sale-title">MON PANIER</h3>
+<div class="top-5-sale">
+    <h3 style="text-align: center;">Montant total à payer: {{total | number:'1.0-0'}} Ariary</h3>
+    <button style="float:right; width: 15%;" class="btn btn-success btn-block" (click) = "valider()">Valider mon panier</button>
+    <br><br>
+    <div *ngFor="let product of products" id="top-1">
+        <div class="card">
+            <div class="card-image"><img src="https://i.picsum.photos/id/334/2304/1536.jpg?hmac=ihrh84KbSSW-zvp-oRz8FGCVOWvPAD3SZvYPS0v3mv8" alt="Lorem Picture" /></div>
+            <div class="card-body">
+                <div class="card-date">
+                    <time>{{product['price'] | number:'1.0-0'}} Ariary</time>
+                </div>
+                <div class="card-title">
+                    <h3>{{product['name']}}</h3>
+                </div>
+                <div class="card-description">
+                    <p class="texte">Quantité: 1<br>
+                    </p>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    
+</div>

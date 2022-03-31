@@ -11,7 +11,9 @@
                     <h4>{{product.price}} Ar</h4>
                 </div>
                 <div class="card-description">
-                    <p class="texte">{{product.description}}</p>
+                    <p class="texte">{{product.description}}<br>
+                        <button class="btn btn-success btn-block" (click) = "ajouter(product)">Ajouter au panier</button>
+                    </p>
                 </div>
     
             </div>

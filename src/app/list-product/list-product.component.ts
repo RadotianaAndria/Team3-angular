@@ -56,4 +56,32 @@ export class ListProductComponent implements OnInit {
      });
     } 
   }
+
+  async ajouter(product:Product){
+    if(product != null){
+      let panier = sessionStorage.getItem("panier");
+      if(panier != null){
+        var paniers = JSON.parse(panier);
+        var products = paniers['products'];
+        products.push(product);
+        sessionStorage.setItem("panier", JSON.stringify(paniers));
+        alert("Le produit de référence " +product.id+" est ajouté au panier");
+      }
+    }
+  }
+    // if(productId != null){
+    //   let panier = sessionStorage.getItem("panier");
+    //   if(panier != null){
+    //     var paniers = JSON.parse(panier);
+    //     var products = paniers['products'];
+    //     products[productId] = 1;
+    //     paniers['products'] = products;
+    //     sessionStorage.setItem("panier", JSON.stringify(paniers));
+    //   }
+    //   alert("Le produit de référence " +productId+" est ajouté au panier");
+    // }
+    // console.log(productId);
+  // }
+
+
 }
