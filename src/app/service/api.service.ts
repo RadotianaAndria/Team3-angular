@@ -6,6 +6,10 @@ export interface LoginResponse {
   access_token: string;
 }
 
+export interface AddResponse {
+  items_in_cart: string;
+}
+
 export interface Product {
   name: string;
   price: Float32Array;
@@ -45,6 +49,24 @@ export class ApiService {
 
     return await this.http.post<LoginResponse>(url, body, options).toPromise().catch(() => { return null as any });
   }
+
+  async addPanier(access_token:string, idUser:number, idProduct:number, quantity:number){
+    const url = environment.apiUrl + "users/addItemIntoCart";
+    const body = {
+      "idUser": idUser,
+      "idProduct": idProduct,
+      "quantity": quantity
+    };
+    const options = {
+      headers: {
+        'Authorization': "Bearer "+access_token
+      }
+    };
+    console.log("OPTIONS: ",options);
+    console.log("BODY: ",body);
+    return await this.http.post<AddResponse>(url, body, options).toPromise().catch(() => { return null as any });
+  }
+
   async getTop5(access_token:string){
     const url = environment.apiUrl+"products.json";
     console.log("URL de l'API: "+url);
