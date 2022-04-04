@@ -10,6 +10,10 @@ export interface AddResponse {
   items_in_cart: string;
 }
 
+export interface UserResponse {
+  user: string;
+}
+
 export interface Product {
   name: string;
   price: Float32Array;
@@ -48,6 +52,17 @@ export class ApiService {
     };
 
     return await this.http.post<LoginResponse>(url, body, options).toPromise().catch(() => { return null as any });
+  }
+
+  async getIdUser(access_token:string, username:string){
+    const url = environment.apiUrl+"users/getIdUser?username="+username;
+    console.log("URL de l'API: "+url);
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Authorization': "Bearer "+access_token
+      })
+    };
+    return await this.http.get<UserResponse>(url, httpOptions).toPromise().catch(() => { return null as any});
   }
 
   async addPanier(access_token:string, idUser:number, idProduct:number, quantity:number){

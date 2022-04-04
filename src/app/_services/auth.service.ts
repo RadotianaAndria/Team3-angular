@@ -16,7 +16,10 @@ export class AuthService {
     let loginResponse = await this.apiService.doLogin(username, password);
     if (loginResponse != null && loginResponse.access_token != null) {
       localStorage.setItem("access_token", loginResponse.access_token);
-      sessionStorage.setItem("panier",JSON.stringify(new Panier(2)));
+      var idUser = await this.apiService.getIdUser(loginResponse.access_token, username);
+      var id = idUser.id;
+      sessionStorage.setItem("idUser", JSON.stringify(id));
+      sessionStorage.setItem("panier",JSON.stringify(new Panier(id)));
       return true;
     }
     return false;

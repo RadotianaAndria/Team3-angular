@@ -38,6 +38,8 @@ export class PanierComponent implements OnInit {
           console.log("Produit ajouté dans le panier");
         }
       }
+      var idUser = sessionStorage.getItem("idUser");
+      if(idUser != null) sessionStorage.setItem("panier",JSON.stringify(new Panier(JSON.parse(idUser))));
     }
   }
 }
