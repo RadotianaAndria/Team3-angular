@@ -1,25 +1,23 @@
 <br><br><br>
 <h3 class="top-5-sale-title">TOP 5 SALE</h3>
-<div class="top-5-sale">
-    
-    <div *ngFor="let product of products" id="top-1">
+<div class="product-main-div">
+    <div id="main-card" *ngFor="let product of products">
         <div class="card">
-            <div class="card-image"><img src="https://i.picsum.photos/id/334/2304/1536.jpg?hmac=ihrh84KbSSW-zvp-oRz8FGCVOWvPAD3SZvYPS0v3mv8" alt="Lorem Picture" /></div>
+            <div class="card-image"><img src="/assets/img/{{product['photo']}}" alt="IMAGE" /></div>
             <div class="card-body">
-                <div class="card-date">
-                    <time>{{product['price'] | number:'1.0-0'}} Ariary</time>
-                </div>
-                <div class="card-title">
+                <div class="card-name">
                     <h3>{{product['name']}}</h3>
                 </div>
+                <div class="card-price">
+                    <h4>{{product['price']}} Ar</h4>
+                </div>
                 <div class="card-description">
-                    <p class="texte"> {{product['description']}}<br>
+                    <p class="texte">{{product['description']}}<br>
                         <button class="btn btn-success btn-block" (click) = "ajouter(product)">Ajouter au panier</button>
                     </p>
                 </div>
-                
+    
             </div>
         </div>
     </div>
-    
 </div>

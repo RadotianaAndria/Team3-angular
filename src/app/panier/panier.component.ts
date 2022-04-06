@@ -29,15 +29,19 @@ export class PanierComponent implements OnInit {
     if(this.monPanier != null){
       console.log("Niditra");
       var panier = JSON.parse(this.monPanier);
+      console.log("PANIER ", panier);
       var idClient = panier.idClient;
       var quantite = panier.quantite;
       var products = panier.products;
       let token:string = sessionStorage.getItem("access_token") ?? "";
+      console.log("LENGTH ",products.length);
       for(var i = 0; i<products.length; i++){
+        console.log("REPONSE ", await this.apiService.addPanier(token, idClient, products[i].id, quantite));
         if(await this.apiService.addPanier(token, idClient, products[i].id, quantite)){
-          console.log("Produit ajouté dans le panier");
+          console.log("Panier validé");
         }
       }
+      alert("Panier validé");
       var idUser = sessionStorage.getItem("idUser");
       if(idUser != null) sessionStorage.setItem("panier",JSON.stringify(new Panier(JSON.parse(idUser))));
     }

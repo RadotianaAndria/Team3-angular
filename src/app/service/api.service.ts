@@ -83,7 +83,7 @@ export class ApiService {
   }
 
   async getTop5(access_token:string){
-    const url = environment.apiUrl+"products.json";
+    const url = environment.apiUrl+"products/top5";
     console.log("URL de l'API: "+url);
     const httpOptions = {
       headers: new HttpHeaders({

@@ -49,7 +49,7 @@
                 overflow: hidden;/*3*/
         
                 img {
-                    width: 150%;/*4*/
+                    width: 75%;/*4*/
                         /*5 - Méthode de centrage en fonction de la taille de l'image */
                     position: absolute;
                     top: 50%;
@@ -65,7 +65,7 @@
             }
         
             .card-body {
-                height: 40%;
+                height: 45%;
                 width: 100%;
                 text-align:center;  /*1*/
                 padding: 15px 20px; /*2*/

@@ -5,20 +5,27 @@
         text-align: center;
     }
 
-    .top-5-sale{
-        display: flex;
-        flex-direction: row;
-        //justify-content: center;
-        justify-content: space-between;
-        margin: 60px;
-        @media screen and (max-width:102em){
-            flex-direction: column;
+    .product-main-div{
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        grid-gap: 10px;
+        grid-auto-rows: minmax(100px, auto);
+        margin-top: 30px;
+        margin-bottom: 20px;
+        @media screen and (max-width:600px) {
+            grid-template-columns: repeat(1, 1fr);
+            margin-top: 60px;
+        }
+
+        @media screen and (min-width:1700px) {
+            grid-template-columns: repeat(5, 1fr);
             margin-top: 60px;
         }
     }
     
     
-    #top-1, #top-2, #top-3, #top-4, #top-5{
+    #main-card{
+        margin-top: 20px;
         .card:hover .card-image img { 
             width: 160%;
             filter: grayscale(0);
@@ -26,7 +33,7 @@
     
         .card {
             
-            width: 300px;
+            width: 280px;
             height: 400px;
             margin: 0px auto;
             background-color: white;
@@ -42,7 +49,7 @@
                 overflow: hidden;/*3*/
         
                 img {
-                    width: 150%;/*4*/
+                    width: 75%;/*4*/
                         /*5 - Méthode de centrage en fonction de la taille de l'image */
                     position: absolute;
                     top: 50%;
@@ -58,17 +65,17 @@
             }
         
             .card-body {
-                height: 40%;
+                height: 45%;
                 width: 100%;
                 text-align:center;  /*1*/
                 padding: 15px 20px; /*2*/
                 box-sizing: border-box; /*3*/
 
-                .card-date {
+                .card-name {
                     font-family: 'Source Sans Pro', sans-serif;
                 }
                 
-                .card-title, .card-description {
+                .card-price, .card-description {
                     font-family: 'Playfair Display', serif;
                     .texte {
                         overflow: hidden;
@@ -79,13 +86,13 @@
                     }
                 }
                 
-                .card-date, .card-title {
+                .card-name, .card-price {
                     text-align:center;
                     text-transform:uppercase;
                     font-weight: bold;
                 }
                 
-                .card-date, .card-description {
+                .card-name, .card-description {
                     color: #777;
                 }
 
