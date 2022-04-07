@@ -36,7 +36,6 @@ export class PanierComponent implements OnInit {
       let token:string = sessionStorage.getItem("access_token") ?? "";
       console.log("LENGTH ",products.length);
       for(var i = 0; i<products.length; i++){
-        console.log("REPONSE ", await this.apiService.addPanier(token, idClient, products[i].id, quantite));
         if(await this.apiService.addPanier(token, idClient, products[i].id, quantite)){
           console.log("Panier validé");
         }
